@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center"><strong>Listado Jugadores</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="jugadores.length > 0 then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <ion-list>
+    <div *ngFor="let jugador of jugadores" >
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img [src]=" 'https://192.168.1.55:3000/' + jugador.imagen"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          {{ jugador.nombre }} - {{jugador.equipo}}
+        </ion-label>
+        <!-- <ion-fab horizontal="end" slot="fixed"> -->
+          <ion-fab-button style="height: 1.6em; width: 1.6em;margin-right: 4px;" color="secondary" (click)="actualizarJugador(jugador.id)" type="button">
+            <ion-icon style="height: 0.5em; width: 0.5em;" name="create"></ion-icon> 
+          </ion-fab-button> 
+          
+          <ion-fab-button style="height: 1.6em; width: 1.6em;" color="danger" (click)="borrarJugador(jugador.id)" type="button">
+            <ion-icon style="height: 0.5em; width: 0.5em;" name="trash"></ion-icon> 
+          </ion-fab-button>
+        <!-- </ion-fab> -->
+      </ion-item>
+
+    </div>
+
+  </ion-list>
+  <!-- <div class="col-md-4" *ngFor="let jugador of jugadores">
+    <div class="card text-center">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        {{jugador.nombre}}
+        <button class="btn btn-danger" (click)="borrarJugador(jugador.id)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <img class="card-img-top" [src]="'http://localhost:3000/' + jugador.imagen" width="150" height="150">
+      <div class="card-body">
+        <p>{{jugador.posicion}}</p>
+        <p>{{jugador.equipo}}</p>
+        <p>{{jugador.nacionalidad}}</p>
+        <p>Añadido {{jugador.fecha_creacion | date: 'yyyy-MM-dd HH:mm'}}</p>
+        <a [routerLink]="['/jugador/edit', jugador.id, jugador.imagen]" class="btn btn-info btn-block">
+          Editar Jugador
+        </a>
+      </div>
+    </div>
+  </div>  -->
+</ng-template>
+<ng-template #elseBlock>
+  No hay resultados
+  
+  
+</ng-template>
+</ion-content>
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button style="height: 2.4em; width: 2.4em" color="success" (click)="addJugador()" type="button">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button style="height: 2.4em; width: 2.4em" color="success" (click)="goHome()" type="button">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

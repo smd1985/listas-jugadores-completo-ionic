@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text-center">
+      <strong> {{titulo}} </strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-input placeholder="Nombre" [(ngModel)]="nombre" type="text"></ion-input>
+          <ion-input placeholder="Equipo" [(ngModel)]="equipo"></ion-input>
+          <ion-input placeholder="Nacionalidad" [(ngModel)]="nacionalidad"></ion-input>
+          <ion-input placeholder="Posicion" [(ngModel)]="posicion"></ion-input>
+          <!-- <ion-input placeholder="Imagen" #imagen></ion-input> -->
+          <ion-input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput></ion-input>
+          <img [src]="photoSelected || '../../../assets/noimagen.png'" class="img-fluid" alt="img" (click)="photoInput.click()" >
+
+          <ion-button color="primary" (click)="edit ? actualizarJugador(nombre,equipo,nacionalidad,posicion, imagen) : guardarJugador(nombre,equipo,nacionalidad,posicion, imagen)">
+            Guardar
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button style="height: 2.4em; width: 2.4em" color="success" (click)="atras()" type="button">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

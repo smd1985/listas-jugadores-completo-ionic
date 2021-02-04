@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title  class="ion-text-center">
+      <strong>Listado Jugadores</strong>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToListar()">
+        <ion-icon name="list"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    Aplic de listado de jugadores
+    <ion-button color="primary" (click)="goToListar()">
+      Ver listado
+    </ion-button>
+  </div>
+</ion-content>

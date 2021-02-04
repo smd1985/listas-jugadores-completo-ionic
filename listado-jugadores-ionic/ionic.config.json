@@ -1,0 +1,7 @@
+{
+  "name": "listas-jugadores",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
